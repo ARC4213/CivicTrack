@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CivicTrack | Civic Issue Reporting</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">C</span><span>CivicTrack<small>Report. Track. Resolve.</small></span></a>
+    <span class="offline-label"><span></span> Offline demo</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">SMART CIVIC SERVICES</p>
+        <h1>Make your community<br><span>better, together.</span></h1>
+        <p class="hero-copy">Report local issues and follow their progress through a simple civic service dashboard.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle"></div><div class="art-building b1"></div>
+        <div class="art-building b2"></div><div class="art-building b3"></div>
+        <div class="art-road"></div><div class="art-pin">＋</div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Portal navigation">
+      <button class="tab active" data-view="citizen">Citizen Portal</button>
+      <button class="tab" data-view="municipal">Municipal Portal</button>
+    </nav>
+
+    <section id="citizenView" class="view">
+      <div class="section-heading">
+        <div><p class="eyebrow">CITIZEN SERVICES</p><h2>Report a civic issue</h2></div>
+        <p class="muted">Submit an issue and keep its reference number.</p>
+      </div>
+      <div class="content-grid">
+        <form id="complaintForm" class="panel form-panel">
+          <h3>Complaint details</h3>
+          <label for="citizenName">Your name</label>
+          <input id="citizenName" maxlength="60" placeholder="Enter your name" required>
+          <label for="category">Issue category</label>
+          <select id="category" required>
+            <option value="">Choose a category</option>
+            <option>Roads</option><option>Streetlights</option><option>Water Supply</option>
+            <option>Waste Management</option><option>Drainage</option><option>Public Safety</option><option>Other</option>
+          </select>
+          <label for="location">Issue location</label>
+          <input id="location" maxlength="120" placeholder="Area, street or landmark" required>
+          <label for="title">Complaint title</label>
+          <input id="title" maxlength="100" placeholder="Briefly describe the issue" required>
+          <label for="description">Description</label>
+          <textarea id="description" maxlength="1000" rows="4" placeholder="Provide useful details..." required></textarea>
+          <button class="primary-btn" type="submit">Submit complaint <span>→</span></button>
+          <p class="form-note">Demo tip: Use a sample issue. Do not enter private or sensitive information.</p>
+        </form>
+
+        <aside class="panel info-panel">
+          <div class="info-icon">✓</div>
+          <h3>What happens next?</h3>
+          <ol class="steps">
+            <li><b>Submitted</b><span>Your report is saved in this browser.</span></li>
+            <li><b>Under Review</b><span>The municipal team reviews the report.</span></li>
+            <li><b>In Progress</b><span>Action is being taken on the issue.</span></li>
+            <li><b>Resolved</b><span>The reported issue has been addressed.</span></li>
+          </ol>
+          <div class="privacy-note"><b>Privacy note</b><p>This is a local demonstration. Data stays in this browser and is not sent to a municipal authority.</p></div>
+        </aside>
+      </div>
+
+      <div class="section-heading list-heading">
+        <div><p class="eyebrow">YOUR ACTIVITY</p><h2>Submitted complaints</h2></div>
+        <span id="citizenCount" class="count-pill">0 reports</span>
+      </div>
+      <div id="citizenComplaints" class="complaint-list"></div>
+    </section>
+
+    <section id="municipalView" class="view hidden">
+      <div class="section-heading">
+        <div><p class="eyebrow">ADMINISTRATION</p><h2>Municipal dashboard</h2></div>
+        <span class="demo-tag">Demonstration mode</span>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><span>Total reports</span><strong id="statTotal">0</strong><small>All submitted complaints</small></article>
+        <article class="stat-card"><span>Under review</span><strong id="statReview">0</strong><small>Awaiting assessment</small></article>
+        <article class="stat-card"><span>In progress</span><strong id="statProgress">0</strong><small>Action underway</small></article>
+        <article class="stat-card"><span>Resolved</span><strong id="statResolved">0</strong><small>Marked as resolved</small></article>
+      </div>
+      <div class="panel admin-panel">
+        <div class="admin-toolbar">
+          <div><h3>Complaint management</h3><p class="muted">Review reports and update their status.</p></div>
+          <select id="statusFilter" aria-label="Filter by status">
+            <option value="All">All statuses</option><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Rejected</option>
+          </select>
+        </div>
+        <div id="municipalComplaints" class="table-wrap"></div>
+      </div>
+      <p class="admin-warning">Anyone using this browser can open this demonstration dashboard. It has no real officer authentication or server-side access control.</p>
+    </section>
+  </main>
+
+  <footer><span>© 2026 CivicTrack</span><span>Academic mini-project demonstration · Browser storage only</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
